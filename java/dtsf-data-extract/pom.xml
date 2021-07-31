@@ -7,9 +7,9 @@ Marketplace
 Explore
  
 @kvirotig 
-GoogleCloudPlatform
+kvirotig
 /
-cloud-bigtable-examples
+gcp-dataproc-hadoop-java-poc
 60
 203218
 Code
@@ -21,7 +21,7 @@ Actions
 Projects
 Security
 Insights
-cloud-bigtable-examples/java/dataproc-wordcount/pom.xml
+gcp-dataproc-hadoop-java-poc/java/dtsf-data-extract/pom.xml
 @sduskis
 sduskis Upgrading dependencies to bigtable-hbase 1.0.0 (#267)
 Latest commit ee436eb on Nov 22, 2017
@@ -45,27 +45,12 @@ Latest commit ee436eb on Nov 22, 2017
 <project>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.example.bigtable</groupId>
-  <artifactId>wordcount-mapreduce</artifactId>
+  <groupId>org.ford.data.extract</groupId>
+  <artifactId>dtsf</artifactId>
   <version>0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <!-- Parent POM defines common plugins and properties.
-       TODO: use the parent when this sample passes checkstyles.
-       See: https://github.com/GoogleCloudPlatform/cloud-bigtable-examples/issues/59
-  <parent>
-    <groupId>com.google.cloud</groupId>
-    <artifactId>bigtable-samples</artifactId>
-    <version>1.0.0</version>
-    <relativePath>..</relativePath>
-  </parent> -->
-
   <properties>
-    <bigtable.projectID>YOUR_PROJECT_ID_HERE</bigtable.projectID>
-    <bigtable.instanceID>YOUR_INSTANCE_ID_HERE</bigtable.instanceID>
-
-    <bigtable.version>1.0.0</bigtable.version>
-
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
 
@@ -81,7 +66,7 @@ Latest commit ee436eb on Nov 22, 2017
       <snapshots><enabled>true</enabled></snapshots>
     </repository>
   </repositories>
-
+<!--
   <dependencies>
     <dependency>
       <groupId>com.google.cloud.bigtable</groupId>
@@ -89,17 +74,17 @@ Latest commit ee436eb on Nov 22, 2017
       <version>${bigtable.version}</version>
     </dependency>
   </dependencies>
-
+-->
   <build>
     <outputDirectory>target/${project.artifactId}-${project.version}/WEB-INF/classes</outputDirectory>
-
+<!--
     <resources>
         <resource>
             <directory>src/main/resources</directory>
             <filtering>true</filtering>
         </resource>
     </resources>
-
+-->
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
@@ -118,7 +103,7 @@ Latest commit ee436eb on Nov 22, 2017
           </descriptorRefs>
           <archive>
             <manifest>
-                <mainClass>com.example.bigtable.sample.WordCountDriver</mainClass>
+                <mainClass>org.ford.data.extract.DataExtractAction</mainClass>
             </manifest>
           </archive>
         </configuration>
